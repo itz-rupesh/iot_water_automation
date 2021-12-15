@@ -18,13 +18,15 @@ else{
     echo "Connection Success!<br><br>";
 }
 
-$water_level = $_GET["water_level"];
-$motor_status = $_GET["motor_status"]; 
+// $water_level = $_GET["water_level"];
+// $motor_status = $_GET["motor_status"]; 
 
-
-$query = "INSERT INTO iot_project (temperature, humidity) VALUES ('$temperature', '$humidity')";
-$result = mysqli_query($connect,$query);
-
+$water_level=15;
+$motor_status=true;
+$query = "UPDATE motor_status SET status ='$motor_status' where motor_id=2021";
+$result1 = mysqli_query($connect,$query);
+$query = "UPDATE water_level SET water_level ='$water_level' where tank_id=2021";
+$result2 = mysqli_query($connect,$query);
 echo "Insertion Success!<br>";
 
 ?>
